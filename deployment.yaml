@@ -45,7 +45,7 @@ metadata:
   name: ingress-springboot
   namespace: jialong-dev
   annotations: 
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   rules:  
   - http: 
