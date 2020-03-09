@@ -1,0 +1,19 @@
+stages:
+- name: build
+  steps:
+  - runScriptConfig:
+      image: registry.cn-hangzhou.aliyuncs.com/jialong-hub/jialong-common/maven:latest
+      shellScript: mvn clean package
+- name: publish
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: rancher-github-adapter:v0.1
+      registry: 127.0.0.1:34808
+- name: deployment
+  steps:
+  - applyYamlConfig:
+      path: ./deployment.yaml
+timeout: 60
+notification: {}
