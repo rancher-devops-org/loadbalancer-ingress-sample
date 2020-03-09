@@ -44,6 +44,8 @@ kind: Ingress
 metadata:  
   name: ingress-springboot
   namespace: jialong-dev
+  annotations: 
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:  
   - http: 
