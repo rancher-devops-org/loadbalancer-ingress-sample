@@ -35,3 +35,23 @@ spec:
       targetPort: 8080
   selector:  
     app: ingress-springboot-deployment
+    
+
+---
+
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:  
+  name: ingress-springboot
+  namespace: jialong-dev
+spec:
+  rules:  
+  - http: 
+      paths:
+      - path: /
+        backend:
+          serviceName: ingress-springboot-deployment
+          servicePort: 8080
+
+
+    
